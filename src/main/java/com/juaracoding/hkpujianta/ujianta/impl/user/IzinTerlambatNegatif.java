@@ -132,4 +132,41 @@ public class IzinTerlambatNegatif {
             extentTest.log(LogStatus.PASS, "TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan");
         }
     }
+    @When("TIZNU003 Tekan tombol kembali")
+    public void tiznu003_tekan_tombol_kembali(){
+        GlobalFunction.delay(2);
+        driver.navigate().refresh();
+        izinPage.getBtnKembali().click();
+        extentTest.log(LogStatus.PASS, "TIZNU003 Tekan tombol kembali");
+    }
+    @Then("TIZNU003 Validasi halaman home setelah izin terlambat")
+    public void tiznu003_validasi_halaman_home_setelah_izin_terlambat(){
+        GlobalFunction.delay(2);
+        if(userLoginPage.getDivValidasiHome().isDisplayed()){
+            extentTest.log(LogStatus.PASS, "TIZNU003 Validasi halaman home setelah izin terlambat");
+
+        }else{
+            extentTest.log(LogStatus.FAIL, "TIZNU003 Validasi halaman home setelah izin terlambat");
+        }
+    }
+    @When("TIZNU003 Tekan button stip")
+    public void tiznu003_tekan_button_stip(){
+        GlobalFunction.delay(2);
+        userLoginPage.getBtnUtkLogout().click();
+        extentTest.log(LogStatus.PASS, "TIZNU003 Tekan button stip");
+    }
+    @When("TIZNU003 tekan tombol Logout")
+    public void tiznu003_tekan_tombol_logout(){
+        GlobalFunction.delay(2);
+        userLoginPage.getButtonLogout().click();
+        extentTest.log(LogStatus.PASS, "TIZNU003 tekan tombol Logout");
+    }
+    @Then("TIZNU003 Validasi halaman login")
+    public void tiznu003_validasi_halaman_login(){
+        if(userLoginPage.getDivValidasiLogin().isDisplayed()){
+            extentTest.log(LogStatus.PASS, "TIZNU003 Validasi halaman login");
+        }else {
+            extentTest.log(LogStatus.FAIL, "TIZNU003 Validasi halaman login");
+        }
+    }
 }

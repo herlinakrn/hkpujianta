@@ -217,14 +217,13 @@ public class UnitPositif {
         userMonitoring.getTxtFieldUnit().sendKeys(namaUnit);
         userMonitoring.getTxtFieldUnit().sendKeys(Keys.RETURN);
 
+        GlobalFunction.delay(2);
+
         if(userMonitoring.getTxtFieldUnit().isDisplayed()){
             extentTest.log(LogStatus.PASS, "TUNPA001 Validasi dropdown Unit di User Monitoring");
         }else{
             extentTest.log(LogStatus.FAIL, "TUNPA001 Validasi dropdown Unit di User Monitoring");
         }
-            GlobalFunction.delay(1);
-
-       // extentTest.log(LogStatus.PASS, "TUNPA001 Validasi dropdown Unit di User Monitoring");
     }
 
     //TUNPA002 Admin menambahkan unit baru dengan isian nama unit saja
@@ -341,17 +340,15 @@ public class UnitPositif {
     @And("TUNPA002 Edit bagian field nama unit")
     public void tunpa002_edit_bagian_field_nama_unit(){
         namaUnitEdit = "Edit Unit by H";
-
         GlobalFunction.delay(1);
-        //unitPage.getTxtFieldNamaUnit().click();
-        unitPage.getTxtFieldNamaUnit().clear();
 
+        unitPage.getTxtFieldNamaUnit().clear();
         unitPage.getTxtFieldNamaUnit().sendKeys(namaUnitEdit);
+
         extentTest.log(LogStatus.PASS, "TUNPA002 Edit bagian field nama unit");
     }
     @When("TUNPA002 Tekan tombol simpan")
     public void tunpa002_tekan_tombol_simpan(){
-        //unitPage.getButtonModalTambah().click();
         unitPage.getBtnSimpanEdit().click();
         extentTest.log(LogStatus.PASS, "TUNPA002 Tekan tombol simpan");
     }
@@ -360,20 +357,16 @@ public class UnitPositif {
         GlobalFunction.delay(1);
         unitPage.getTxtSearchField().clear();
         unitPage.getTxtSearchField().click();
-        unitPage.getTxtSearchField().sendKeys(namaUnit2);
+        unitPage.getTxtSearchField().sendKeys(namaUnitEdit);
         unitPage.getButtonSearch().click();
 
-        int varInt = 0;
-        while(true){
-            varInt = varInt+1;
-            GlobalFunction.delay(1);
-            if(unitPage.getTabelUnit().trim().equals(namaUnit2+namaUnitEdit)){
-                extentTest.log(LogStatus.PASS, "TUNPA002 Validasi hasil edit nama Unit");
-                break;
-            } else if (varInt ==10) {
-                extentTest.log(LogStatus.FAIL, "TUNPA002 Validasi hasil edit nama Unit");
-                break;
-            }
+        WebElement tabel = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody"));
+        WebElement nama = tabel.findElement(By.tagName("h6"));
+
+        if(nama.getText().equals(namaUnitEdit)){
+            extentTest.log(LogStatus.PASS, "TUNPA002 Validasi hasil edit nama Unit");
+        }else{
+            extentTest.log(LogStatus.FAIL, "TUNPA002 Validasi hasil edit nama Unit");
         }
     }
     @When("TUNPA002 Tekan titik tiga untuk delete")
@@ -397,19 +390,32 @@ public class UnitPositif {
         unitPage.getTxtSearchField().sendKeys("coba");
         unitPage.getButtonSearch().click();
 
-        int varInt = 0;
-        while(true){
-            varInt = varInt+1;
-            GlobalFunction.delay(1);
-            if(unitPage.getTabelUnit().trim().equals(namaUnit2+namaUnitEdit)){
-                extentTest.log(LogStatus.PASS, "TUNPA002 Validasi data yang telah di delete");
-                break;
-            } else if (varInt ==10) {
-                extentTest.log(LogStatus.FAIL, "TUNPA002 Validasi data yang telah di delete");
-                break;
-            }
-        }
+        WebElement tabel = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody"));
+        WebElement nama = tabel.findElement(By.tagName("h6"));
 
+        if(nama.getText().equals(namaUnitEdit)){
+            extentTest.log(LogStatus.FAIL, "TUNPA002 Validasi data yang telah di delete");
+        }else{
+            extentTest.log(LogStatus.PASS, "TUNPA002 Validasi data yang telah di delete");
+        }
+    }
+    @When("TUNPA002 Tekan Profile")
+    public void tunpa002_tekan_profile(){
+        homePage.getLabelProfil().click();
+        extentTest.log(LogStatus.PASS, "TUNPA002 Tekan Profile");
+    }
+    @When("TUNPA002 Tekan Tombol Logout")
+    public void tunpa002_tekan_tombol_logout(){
+        homePage.getButtonLogout().click();
+        extentTest.log(LogStatus.PASS, "TUNPA002 Tekan Tombol Logout");
+    }
+    @Then("TUNPA002 Validasi label halaman login")
+    public void tunpa002_validasi_label_halaman_login(){
+        if(loginPage.getLabelLogin().getText().equals("")){
+            extentTest.log(LogStatus.FAIL, "TUNPA002 Validasi label halaman login");
+        }else {
+            extentTest.log(LogStatus.PASS, "TUNPA002 Validasi label halaman login");
+        }
     }
 
 }

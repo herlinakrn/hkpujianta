@@ -41,3 +41,6 @@ Feature: Unit Positif
     When TUNPA002 Tekan titik tiga untuk delete
     When TUNPA002 Tekan Tombol delete
     Then TUNPA002 Validasi data yang telah di delete
+    When TUNPA002 Tekan Profile
+    When TUNPA002 Tekan Tombol Logout
+    Then TUNPA002 Validasi label halaman login

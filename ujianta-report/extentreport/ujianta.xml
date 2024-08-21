@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="19" time="683.034">
+    <testcase classname="Login Positif" name="TLPA001 Login dengan menggunakan email dan password yang valid" time="21.566">
+        <system-out><![CDATA[When TLPA001 Membuka Halaman Login..........................................passed
+And TLPA001 Clear Field email dan password..................................passed
+And TLPA001 Input textfield "admin@hadir.com" email yang valid..............passed
+And TLPA001 Input textfield "admin@hadir" password yang valid...............passed
+And TLPA001 Tekan tombol Masuk..............................................passed
+And TLPA001 Scroll ke akhir page............................................passed
+Then TLPA001 Validasi halaman home..........................................passed
+When TLPA001 Tekan Profil...................................................passed
+When TLPA001 Tekan tombol Logout............................................passed
+Then TLPA001 Validasi halaman login.........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Registrasi User Positif" name="TRUPA001 Admin melakukan registrasi user dengan isian valid" time="142.518">
+        <system-out><![CDATA[When TRUPA001 Membuka halaman login.........................................passed
+And TRUPA001 clear field email dan password.................................passed
+And TRUPA001 input text field email dan password yang valid.................passed
+And TRUPA001 Tekan tombol masuk.............................................passed
+Then TRUPA001 Validasi halaman home.........................................passed
+When TRUPA001 Tekan menu Management.........................................passed
+When TRUPA001 Tekan menu Pendaftaran User...................................passed
+Then TRUPA001 Validasi halaman Pendaftaran User.............................passed
+And TRUPA001 input text field Foto..........................................passed
+And TRUPA001 Input text field NIK...........................................passed
+And TRUPA001 Input text field Nama Karyawan.................................passed
+And TRUPA001 Input text field Email.........................................passed
+And TRUPA001 Input text field Password......................................passed
+And TRUPA001 Input text field Divisi........................................passed
+And TRUPA001 Input text field Unit..........................................passed
+And TRUPA001 Input text field Posisi Kerja..................................passed
+And TRUPA001 Input text field Jabatan.......................................passed
+And TRUPA001 Input text field Atasan........................................passed
+And TRUPA001 Input text field Atasan V2.....................................passed
+And TRUPA001 Input text field Atasan V3.....................................passed
+And TRUPA001 input text field Tipe Kontrak..................................passed
+And TRUPA001 Input text field Lokasi Kerja..................................passed
+And TRUPA001 Input text Field Tipe Shift....................................passed
+And TRUPA001 Input text field Jadwal Kerja..................................passed
+And TRUPA001 Input text field Selfie........................................passed
+And TRUPA001 Input text field Jumlah Cuti...................................passed
+When TRUPA001 Tekan tombol Submit...........................................passed
+Then TRUPA001 Validasi notifikasi setelah tombol sumbit.....................passed
+When TRUPA001 Tekan Profile.................................................passed
+When TRUPA001 Tekan Tombol Logout...........................................passed
+Then TRUPA001 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Registrasi User Positif" name="TRUPA002 User melakukan login setelah pendaftaran user oleh admin" time="10.918">
+        <system-out><![CDATA[When TRUPA002 Membuka halaman login.........................................passed
+And TRUPA002 clear field email dan password.................................passed
+And TRUPA002 input text field email dan password yang valid.................passed
+When TRUPA002 Tekan tombol masuk............................................passed
+Then TRUPA002 Validasi halaman home.........................................passed
+When TRUPA002 Tekan button stip.............................................passed
+When TRUPA002 tekan tombol Logout...........................................passed
+Then TRUPA002 Validasi halaman login........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unit Positif" name="TUNPA001 Admin menambahkan unit baru dengan isian valid" time="52.031">
+        <system-out><![CDATA[When TUNPA001 Tekan menu management.........................................passed
+When TUNPA001 Tekan menu Unit...............................................passed
+Then TUNPA001 Validasi halaman Unit.........................................passed
+When TUNPA001 Tekan tombol Tambahkan........................................passed
+Then TUNPA001 Validasi modal Tambah Unit....................................passed
+And TUNPA001 Clear semua inputan............................................passed
+And TUNPA001 Input text field nama unit.....................................passed
+And TUNPA001 Input text field lokasi absen tetap............................passed
+And TUNPA001 input text field calender......................................passed
+And TUNPA001 input text field aturan cuti...................................passed
+When TUNPA001 tekan tombol Tambah...........................................passed
+Then TUNPA001 Validasi notifikasi yang muncul setelah tombol tambah ditekan.passed
+And TUNPA001 Input text search berdasarkan nama.............................passed
+When TUNPA001 Tekan tombol search...........................................passed
+Then TUNPA001 Validasi tabel yang telah di search...........................passed
+When TUNPA001 Klik menu Management pilih User Monitoring....................passed
+Then TUNPA001 Validasi Form User Monitoring.................................passed
+Then TUNPA001 Validasi dropdown Unit di User Monitoring.....................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unit Positif" name="TUNPA002 Admin menambahkan unit baru dengan isian nama unit saja" time="49.802">
+        <system-out><![CDATA[When TUNPA002 Tekan menu management.........................................passed
+When TUNPA002 Tekan menu Unit...............................................passed
+Then TUNPA002 Validasi halaman Unit.........................................passed
+When TUNPA002 Tekan tombol Tambahkan........................................passed
+Then TUNPA002 Validasi modal Tambah Unit....................................passed
+And TUNPA002 Clear semua inputan............................................passed
+And TUNPA002 Input text field nama unit.....................................passed
+When TUNPA002 Tekan tombol tambah...........................................passed
+Then TUNPA002 Validasi notifikasi yang muncul setelah tombol tambah ditekan.passed
+And TUNPA002 Input text search berdasarkan nama.............................passed
+When TUNPA002 Tekan tombol search...........................................passed
+Then TUNPA002 Validasi tabel yang telah di search...........................passed
+When TUNPA002 Tekan titik tiga untuk edit...................................passed
+When TUNPA002 Pilih edit....................................................passed
+Then TUNPA002 Validasi Modal Edit Unit......................................passed
+And TUNPA002 Edit bagian field nama unit....................................passed
+When TUNPA002 Tekan tombol simpan...........................................passed
+Then TUNPA002 Validasi hasil edit nama Unit.................................passed
+When TUNPA002 Tekan titik tiga untuk delete.................................passed
+When TUNPA002 Tekan Tombol delete...........................................passed
+Then TUNPA002 Validasi data yang telah di delete............................passed
+When TUNPA002 Tekan Profile.................................................passed
+When TUNPA002 Tekan Tombol Logout...........................................passed
+Then TUNPA002 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Izin Terlambat Positif" name="TIZPU001 User input Izin Terlambat dengan isian valid" time="35.117">
+        <system-out><![CDATA[When TIZPU001 Membuka Halaman Login.........................................passed
+And TIZPU001 Clear field input email dan password...........................passed
+And TIZPU001 Masukan email dan password yang valid..........................passed
+When TIZPU001 Tekan tombol Masuk............................................passed
+Then TIZPU001 Validasi Halaman Home.........................................passed
+When TIZPU001 Tekan tombol Izin.............................................passed
+Then TIZPU001 Validasi Halaman Izin.........................................passed
+When TIZPU001 Tekan tombol Ajukan Izin Terlambat............................passed
+Then TIZPU001 Validasi form Ajukan Izin Terlambat...........................passed
+And TIZPU001 Clear field form Ajukan Izin Terlambat.........................passed
+And TIZPU001 Input field Tanggal............................................passed
+And TIZPU001 Input field Jam................................................passed
+And TIZPU001 Input field Keterangan.........................................passed
+When TIZPU001 Tekan tombol Ajukan...........................................passed
+Then TIZPU001 Validasi setelah melakukan input..............................passed
+When TIZPU001 Tekan tombol kembali..........................................passed
+Then TIZPU001 Validasi halaman home setelah izin............................passed
+When TIZPU001 Tekan button stip.............................................passed
+When TIZPU001 tekan tombol Logout...........................................passed
+Then TIZPU001 Validasi halaman login........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Izin Off Positif" name="TIZOPU001 User mengajukan izin off dengan isian valid" time="49.284">
+        <system-out><![CDATA[When TIZOPU001 Membuka Halaman Login........................................passed
+And TIZOPU001 Clear field input email dan password..........................passed
+And TIZOPU001 Masukan email dan password yang valid.........................passed
+When TIZOPU001 Tekan tombol Masuk...........................................passed
+And TIZOPU001 Validasi Halaman Home.........................................passed
+When TIZOPU001 Tekan tombol Izin............................................passed
+Then TIZOPU001 Validasi Halaman Izin........................................passed
+When TIZOPU001 Tekan tombol Izin Off........................................passed
+Then TIZOPU001 Validasi setelah menekan tombol izin off.....................passed
+When TIZOPU001 Tekan tombol ajukan izin off.................................passed
+Then TIZOPU001 Validasi Form ajukan izin off................................passed
+And TIZOPU001 Input tanggal izin off........................................passed
+And TIZOPU001 input alasan izin off.........................................passed
+When TIZOPU001 Tekan tombol Ajukan..........................................passed
+Then TIZOPU001 Validasi setelah menekan tombol Ajukan.......................passed
+When TIZOPU001 Tekan tombol kembali.........................................passed
+Then TIZOPU001 Validasi halaman home setelah izin off.......................passed
+When TIZOPU001 Tekan button stip............................................passed
+When TIZOPU001 tekan tombol Logout..........................................passed
+When TIZOPU001 Validasi halaman login.......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Izin Off Positif" name="TIZOPA002 Admin melakukan validasi pada menu laporan izin off" time="22.974">
+        <system-out><![CDATA[When TIZOPA002 Membuka Halaman Login........................................passed
+And TIZOPA002 Clear field input email dan password..........................passed
+And TIZOPA002 Masukan email dan password yang valid.........................passed
+When TIZOPA002 Tekan tombol Masuk...........................................passed
+Then TIZOPA002 Validasi Halaman Home........................................passed
+When TIZOPA002 Tekan menu laporan...........................................passed
+When TIZOPA002 Pilih menu Izin Off..........................................passed
+Then TIZOPA002 Validasi menu izin Off.......................................passed
+And TIZOPA002 Input text search berdasarkan nama............................passed
+When TIZOPA002 Tekan tombol search..........................................passed
+And TIZOPA002 Validasi tabel yang telah di search...........................passed
+When TIZOPA002 Tekan Profile................................................passed
+When TIZOPA002 Tekan Tombol Logout..........................................passed
+Then TIZOPA002 Validasi label halaman login.................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Monitoring Positif" name="TUMPA001 Admin melakukan pencarian data dengan keyword 'test'" time="18.899">
+        <system-out><![CDATA[When TUMPA001 Membuka Halaman Login.........................................passed
+And TUMPA001 Clear field input email dan password...........................passed
+And TUMPA001 Masukan email dan password yang valid..........................passed
+When TUMPA001 Tekan tombol Masuk............................................passed
+Then TUMPA001 Validasi Halaman Home.........................................passed
+When TUMPA001 Tekan menu Management.........................................passed
+When TUMPA001 Tekan menu User Monitoring....................................passed
+Then TUMPA001 Validasi halaman User monitoring..............................passed
+And TUMPA001 Input keyword pada text field search...........................passed
+When TUMPA001 Tekan tombol search...........................................passed
+Then TUMPA001 Validasi setelah menekan tombol search........................passed
+When TUMPA001 Tekan Profile.................................................passed
+When TUMPA001 Tekan Tombol Logout...........................................passed
+Then TUMPA001 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="User Monitoring Positif" name="TUMPA002 Admin melakukan edit pada nama user" time="33.083">
+        <system-out><![CDATA[When TUMPA002 Membuka Halaman Login.........................................passed
+And TUMPA002 Clear field input email dan password...........................passed
+And TUMPA002 Masukan email dan password yang valid..........................passed
+When TUMPA002 Tekan tombol Masuk............................................passed
+Then TUMPA002 Validasi Halaman Home.........................................passed
+When TUMPA002 Tekan menu Management.........................................passed
+When TUMPA002 Tekan menu User Monitoring....................................passed
+Then TUMPA002 Validasi halaman User monitoring..............................passed
+And TUMPA002 Input keyword pada text field search...........................passed
+When TUMPA002 Tekan tombol search...........................................passed
+When TUMPA002 Tekan Tombol Titik tiga.......................................passed
+When TUMPA002 Tekan tombol edit.............................................passed
+Then TUMPA002 Validasi Halaman edit user monitoring.........................passed
+And TUMPA002 Ubah text field nama...........................................passed
+When TUMPA002 Tekan tombol ubah.............................................passed
+Then TUMPA002 Validasi setelah menekan tombol ubah..........................passed
+When TUMPA002 Tekan Profile.................................................passed
+When TUMPA002 Tekan Tombol Logout...........................................passed
+Then TUMPA002 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Negatif" name="TLNA002 Login dengan menggunakan email dan password yang kosong" time="6.769">
+        <system-out><![CDATA[When TLNA002 Clear field email dan password.................................passed
+And TLNA002 Input text field email empty string.............................passed
+And TLNA002 Input text field password empty string..........................passed
+And TLNA002 Tekan tombol Masuk..............................................passed
+Then TLNA002 Validasi notifikasi yang muncul saat tombol masuk ditekan......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Negatif" name="TLNA003 Login dengan menggunakan email yang valid" time="6.491">
+        <system-out><![CDATA[When TLNA003 Clear field email dan password.................................passed
+And TLNA003 Input text field email yang valid...............................passed
+And TLNA003 Input text field password yang tidak valid......................passed
+And TLNA003 Tekan tombol Masuk..............................................passed
+Then TLNA003 Validasi notifikasi yang muncul saat tombol masuk ditekan......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Negatif" name="TLNA004 Login dengan menggunakan password yang valid" time="6.517">
+        <system-out><![CDATA[When TLNA004 Clear field email dan password.................................passed
+And TLNA004 Input text field email yang tidak valid.........................passed
+And TLNA004 Input text field password yang valid............................passed
+And TLNA004 Tekan tombol Masuk..............................................passed
+Then TLNA004 Validasi notifikasi yang muncul saat tombol masuk ditekan......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login Negatif" name="TLNA005 Login dengan menggunakan email dan password yang tidak valid" time="6.533">
+        <system-out><![CDATA[When TLNA005 Clear field email dan password.................................passed
+And TLNA005 input text field email yang tidak valid.........................passed
+And TLNA005 input text field password yang tidak valid......................passed
+And TLNA005 Tekan tombol Masuk..............................................passed
+Then TLNA005 Validasi notifikasi yang muncul saat tombol masuk ditekan......passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Registrasi User Negatif" name="TRUNA003 Admin melakukan registrasi dengan foto profil format .jpg namun didalamnya script php" time="112.283">
+        <system-out><![CDATA[When TRUNA003 Membuka halaman login.........................................passed
+And TRUNA003 clear field email dan password.................................passed
+And TRUNA003 input text field email dan password yang valid.................passed
+And TRUNA003 Tekan tombol masuk.............................................passed
+Then TRUNA003 Validasi halaman home.........................................passed
+When TRUNA003 Tekan menu Management.........................................passed
+When TRUNA003 Tekan menu Pendaftaran User...................................passed
+Then TRUNA003 Validasi halaman Pendaftaran User.............................passed
+And TRUNA003 input text field Foto..........................................passed
+And TRUNA003 Input text field NIK...........................................passed
+And TRUNA003 Input text field Nama Karyawan.................................passed
+And TRUNA003 Input text field Email.........................................passed
+And TRUNA003 Input text field Password......................................passed
+And TRUNA003 Input text field Divisi........................................passed
+And TRUNA003 Input text field Unit..........................................passed
+And TRUNA003 Input text field Posisi Kerja..................................passed
+And TRUNA003 Input text field Jabatan.......................................passed
+And TRUNA003 input text field Tipe Kontrak..................................passed
+And TRUNA003 Input text field Lokasi Kerja..................................passed
+And TRUNA003 Input text Field Tipe Shift....................................passed
+And TRUNA003 Input text field Jadwal Kerja..................................passed
+And TRUNA003 Input text field Selfie........................................passed
+When TRUNA003 Tekan tombol Submit...........................................passed
+Then TRUNA003 Validasi notifikasi setelah tombol sumbit.....................passed
+When TRUNA003 Tekan Profile.................................................passed
+When TRUNA003 Tekan Tombol Logout...........................................passed
+Then TRUNA003 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unit Negatif" name="TUNNA003 Admin menambahkan unit baru tanpa mengisi field isian" time="22.613">
+        <system-out><![CDATA[When TUNNA003 Tekan menu management.........................................passed
+When TUNNA003 Tekan menu Unit...............................................passed
+Then TUNNA003 Validasi halaman Unit.........................................passed
+When TUNNA003 Tekan tombol Tambahkan........................................passed
+Then TUNNA003 Validasi modal Tambah Unit....................................passed
+And TUNNA003 Clear semua inputan............................................passed
+When TUNNA003 Tekan tombol tambah...........................................passed
+Then TUNNA003 Validasi notifikasi yang muncul setelah tombol tambah ditekan.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Unit Negatif" name="TUNNA004 Admin menambahkan unit baru dengan panjang karakter lebih dari 500 pada field nama unit" time="14.729">
+        <system-out><![CDATA[And TUNNA004 Input text field nama unit.....................................passed
+When TUNNA004 Tekan tombol tambah...........................................passed
+Then TUNNA004 Validasi notifikasi yang muncul setelah tombol tambah ditekan.passed
+And TUNNA004 Input text search berdasarkan nama.............................passed
+When TUNNA004 Tekan tombol search...........................................passed
+Then TUNNA004 Validasi tabel yang telah di search...........................passed
+When TUNNA004 Tekan Profile.................................................passed
+When TUNNA004 Tekan Tombol Logout...........................................passed
+When TUNNA004 Validasi label halaman login..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Izin Negatif" name="TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan" time="33.741">
+        <system-out><![CDATA[When TIZNU003 Membuka Halaman Login.........................................passed
+And TIZNU003 Clear field input email dan password...........................passed
+And TIZNU003 Masukan email dan password yang valid..........................passed
+When TIZNU003 Tekan tombol Masuk............................................passed
+Then TIZNU003 Validasi Halaman Home.........................................passed
+When TIZNU003 Tekan tombol Izin.............................................passed
+Then TIZNU003 Validasi Halaman Izin.........................................passed
+When TIZNU003 Tekan tombol Ajukan Izin Terlambat............................passed
+When TIZNU003 Validasi form Ajukan Izin Terlambat...........................passed
+When TIZNU003 Tekan tombol Ajukan...........................................passed
+When TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan...............passed
+When TIZNU003 Tekan tombol kembali..........................................passed
+Then TIZNU003 Validasi halaman home setelah izin terlambat..................passed
+When TIZNU003 Tekan button stip.............................................passed
+When TIZNU003 tekan tombol Logout...........................................passed
+Then TIZNU003 Validasi halaman login........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Izin Off Negatif" name="TIZONU003 User melakukan izin off tanpa menginputkan isian" time="33.776">
+        <system-out><![CDATA[When TIZONU003 Membuka Halaman Login........................................passed
+And TIZONU003 Clear field input email dan password..........................passed
+And TIZONU003 Masukan email dan password yang valid.........................passed
+When TIZONU003 Tekan tombol Masuk...........................................passed
+Then TIZONU003 Validasi Halaman Home........................................passed
+When TIZONU003 Tekan tombol Izin............................................passed
+Then TIZONU003 Validasi Halaman Izin........................................passed
+When TIZONU003 Tekan tombol Izin Off........................................passed
+Then TIZONU003 Validasi setelah menekan tombol izin off.....................passed
+When TIZONU003 Tekan tombol ajukan izin off.................................passed
+Then TIZONU003 Validasi Form ajukan izin off................................passed
+When TIZONU003 Tekan tombol Ajukan..........................................passed
+Then TIZONU003 Validasi setelah menekan tombol Ajukan.......................passed
+When TIZONU003 Tekan tombol kembali.........................................passed
+Then TIZONU003 Validasi halaman home setelah izin off.......................passed
+When TIZONU003 Tekan button stip............................................passed
+When TIZONU003 tekan tombol Logout..........................................passed
+Then TIZONU003 Validasi halaman login.......................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

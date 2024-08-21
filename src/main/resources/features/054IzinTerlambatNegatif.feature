@@ -11,3 +11,8 @@ Feature: Izin Negatif
   When TIZNU003 Validasi form Ajukan Izin Terlambat
   When TIZNU003 Tekan tombol Ajukan
   When TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan
+  When TIZNU003 Tekan tombol kembali
+  Then TIZNU003 Validasi halaman home setelah izin terlambat
+  When TIZNU003 Tekan button stip
+  When TIZNU003 tekan tombol Logout
+  Then TIZNU003 Validasi halaman login

@@ -185,4 +185,23 @@ public class UnitNegatif {
             }
         }
     }
+
+    @When("TUNNA004 Tekan Profile")
+    public void tunna004_tekan_profile(){
+        homePage.getLabelProfil().click();
+        extentTest.log(LogStatus.PASS, "TUNNA004 Tekan Profile");
+    }
+    @When("TUNNA004 Tekan Tombol Logout")
+    public void tunna004_tekan_tombol_logout(){
+        homePage.getButtonLogout().click();
+        extentTest.log(LogStatus.PASS, "TUNNA004 Tekan Tombol Logout");
+    }
+    @When("TUNNA004 Validasi label halaman login")
+    public void tunna004_validasi_label_halaman_login(){
+        if(loginPage.getLabelLogin().getText().equals("")){
+            extentTest.log(LogStatus.FAIL, "TUNNA004 Validasi label halaman login");
+        }else {
+            extentTest.log(LogStatus.PASS, "TUNNA004 Validasi label halaman login");
+        }
+    }
 }

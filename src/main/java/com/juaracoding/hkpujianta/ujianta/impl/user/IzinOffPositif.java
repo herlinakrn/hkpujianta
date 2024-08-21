@@ -74,8 +74,8 @@ public class IzinOffPositif {
     }
     @And("TIZOPU001 Masukan email dan password yang valid")
     public void tizopu001_masukan_email_dan_password_yang_valid(){
-        userLoginPage.getTxtEmail().sendKeys("testuser@gmail.com");
-        userLoginPage.getTxtPassword().sendKeys("testuser");
+        userLoginPage.getTxtEmail().sendKeys("dummyher@gmail.com");
+        userLoginPage.getTxtPassword().sendKeys("dummyher");
         extentTest.log(LogStatus.PASS, "TIZOPU001 Masukan email dan password yang valid");
     }
     @When("TIZOPU001 Tekan tombol Masuk")

@@ -29,39 +29,53 @@ public class HadirHooks {
             GlobalFunction.extendReportName +"-main/extentreport/login.html");
     private static HadirScenario[] tests = HadirScenario.values();
     private static final int[] DATA_OUTLINE = {
-            //LOGIN
-            1, //TLPA001 - Login Dengan email Dan Password Yang Valid
-            1, //TLNA002 - Login dengan menggunakan email dan password yang kosong
-            1, //TLNA003 - Login dengan menggunakan email yang valid
-            1, //TLNA004 - Login dengan menggunakan password yang valid
-            1, //TLNA005 - Login dengan menggunakan email dan password yang tidak valid
+            //-----LOGIN POSITIF ADMIN-------
+            1, //("TLPA001 Login dengan menggunakan email dan password yang valid"),
 
-            //REGISTRASI USER
-            1, //TRUPA001 - Admin melakukan registrasi user dengan isian valid
+            //------REGISTRASI USER POSITIF--------
+            1, //("TRUPA001 Admin melakukan registrasi user dengan isian valid"),
+            1,//("TRUPA002 User melakukan login setelah pendaftaran user oleh admin"),
 
-            //MANAGENET UNIT
-            1, //TUNNA003 Admin menambahkan unit baru tanpa mengisi field isian
-            1, //TUNNA004 Admin menambahkan unit baru dengan panjang karakter lebih dari 500 pada field nama unit
+            //------MANAGEMANT UNIT POSITIF-------
+            1, //("TUNPA001 Admin menambahkan unit baru dengan isian valid"),
+            1, //("TUNPA002 Admin menambahkan unit baru dengan isian nama unit saja"),
 
-            //IZIN TERLAMBAT
-            1, //TIZPU001 User input Izin Terlambat dengan isian valid
-            1, //TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan
+            //------IZIN TERLAMBAT POSITIF--------
+            1, //("TIZPU001 User input Izin Terlambat dengan isian valid"),
 
-            //IZIN OFF
-            1, //TIZOPU001 User mengajukan izin off dengan isian valid
-            1, //TIZOPA002 Admin melakukan validasi pada menu laporan izin off
-            1, //TIZONU003 User melakukan izin off tanpa menginputkan isian
+            //------IZIN OFF POSITIF------------
+            1, //("TIZOPU001 User mengajukan izin off dengan isian valid"),
+            1, //("TIZOPA002 Admin melakukan validasi pada menu laporan izin off"),
 
-            //USER MONITORING
-            1, //TUMPA001 Admin melakukan pencarian data dengan keyword 'test'
-            1, //TUMPA002 Admin melakukan edit pada nama user
+            //------USER MONITORING POSITIF-----------
+            1, //("TUMPA001 Admin melakukan pencarian data dengan keyword 'test'"),
+            1, //("TUMPA002 Admin melakukan edit pada nama user"),
+
+            //------LOGIN ADMIN NEGATIF----------------
+            1, //("TLNA002 Login dengan menggunakan email dan password yang kosong"),
+            1, //("TLNA003 Login dengan menggunakan email yang valid"),
+            1, //("TLNA004 Login dengan menggunakan password yang valid"),
+            1, //("TLNA005 Login dengan menggunakan email dan password yang tidak valid"),
+
+            //-------REGISTRASI USER NEGATIF-----------
+            1, //("TRUNA003 Admin melakukan registrasi dengan foto profil format .jpg namun didalamnya script php"),
+
+            //--------UNIT NEGATIF----------------
+            1, //("TUNNA003 Admin menambahkan unit baru tanpa mengisi field isian"),
+            1, //("TUNNA004 Admin menambahkan unit baru dengan panjang karakter lebih dari 500 pada field nama unit"),
+
+            //--------IZIN TERLAMBAT NEGATIF---------------
+            1, //("TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan"),
+
+            //--------IZIN OFF NEGATIF---------------
+            1, //("TIZONU003 User melakukan izin off tanpa menginputkan isian")
     };
 
     private String testReport = "";
 
     @Before
     public void setUp() {
-        DriverSingleton.getInstance(Constants.EDGE);
+        DriverSingleton.getInstance(Constants.FIREFOX);
         driver = DriverSingleton.getDriver();
         testReport = tests[GlobalFunction.testCount].getTestName();
         extentTest = reports.startTest(testReport);

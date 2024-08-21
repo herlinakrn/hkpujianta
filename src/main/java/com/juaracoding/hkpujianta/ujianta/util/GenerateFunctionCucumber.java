@@ -17,20 +17,6 @@ public class GenerateFunctionCucumber {
         public static void  generateFunc(){
             String [] strPrefix = {
                     "@When",
-                    "@And",
-                    "@And",
-                    "@When",
-                    "@Then",
-                    "@When",
-                    "@When",
-                    "@Then",
-                    "@And",
-                    "@When",
-                    "@When",
-                    "@When",
-                    "@Then",
-                    "@And",
-                    "@When",
                     "@Then",
                     "@When",
                     "@When",
@@ -39,25 +25,11 @@ public class GenerateFunctionCucumber {
             };
 
             String [] strFunction = {
-                    "TUMPA002 Membuka Halaman Login",
-                    "TUMPA002 Clear field input email dan password",
-                    "TUMPA002 Masukan email dan password yang valid",
-                    "TUMPA002 Tekan tombol Masuk",
-                    "TUMPA002 Validasi Halaman Home",
-                    "TUMPA002 Tekan menu Management",
-                    "TUMPA002 Tekan menu User Monitoring",
-                    "TUMPA002 Validasi halaman User monitoring",
-                    "TUMPA002 Input keyword pada text field search",
-                    "TUMPA002 Tekan tombol search",
-                    "TUMPA002 Tekan Tombol Titik tiga",
-                    "TUMPA002 Tekan tombol edit",
-                    "TUMPA002 Validasi Halaman edit user monitoring",
-                    "TUMPA002 Ubah text field nama",
-                    "TUMPA002 Tekan tombol ubah",
-                    "TUMPA002 Validasi setelah menekan tombol ubah",
-                    "TUMPA002 Tekan Profile",
-                    "TUMPA002 Tekan Tombol Logout",
-                    "TUMPA002 Validasi label halaman login",
+                    "TIZNU003 Tekan tombol kembali",
+                    "TIZNU003 Validasi halaman home",
+                    "TIZNU003 Tekan button stip",
+                    "TIZNU003 tekan tombol Logout",
+                    "TIZNU003 Validasi halaman login",
             };
 
             for (int i = 0; i < strFunction.length; i++) {

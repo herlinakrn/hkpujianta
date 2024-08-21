@@ -26,3 +26,6 @@ Feature: Unit Negatif
     And TUNNA004 Input text search berdasarkan nama
     When TUNNA004 Tekan tombol search
     Then TUNNA004 Validasi tabel yang telah di search
+    When TUNNA004 Tekan Profile
+    When TUNNA004 Tekan Tombol Logout
+    When TUNNA004 Validasi label halaman login

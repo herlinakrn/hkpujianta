@@ -61,12 +61,13 @@ public class IzinOffNegatif {
     }
     @And("TIZONU003 Clear field input email dan password")
     public void tizonu003_clear_field_input_email_dan_password(){
-        userLoginPage.getTxtEmail().clear();
-        userLoginPage.getTxtPassword().clear();
+//        userLoginPage.getTxtEmail().clear();
+//        userLoginPage.getTxtPassword().clear();
         extentTest.log(LogStatus.PASS, "TIZONU003 Clear field input email dan password");
     }
     @And("TIZONU003 Masukan email dan password yang valid")
     public void tizonu003_masukan_email_dan_password_yang_valid(){
+        GlobalFunction.delay(2);
         userLoginPage.getTxtEmail().sendKeys("testuser@gmail.com");
         userLoginPage.getTxtPassword().sendKeys("testuser");
         extentTest.log(LogStatus.PASS, "TIZONU003 Masukan email dan password yang valid");

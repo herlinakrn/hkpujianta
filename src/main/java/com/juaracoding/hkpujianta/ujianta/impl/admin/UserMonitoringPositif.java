@@ -209,6 +209,8 @@ public class UserMonitoringPositif {
     }
     @When("TUMPA002 Tekan Tombol Titik tiga")
     public void tumpa002_tekan_tombol_titik_tiga(){
+        GlobalFunction.delay(2);
+
         userMonitoring.getBtnTitikTiga().click();
         extentTest.log(LogStatus.PASS, "TUMPA002 Tekan Tombol Titik tiga");
     }
@@ -227,16 +229,11 @@ public class UserMonitoringPositif {
     }
     @And("TUMPA002 Ubah text field nama")
     public void tumpa002_ubah_text_field_nama(){
-        WebElement page = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div/div/div[2]/form/div[2]/div/div[1]/div/div"));
-        WebElement editNama = page.findElement(By.tagName("input"));
         namaUser = "Uji Coba Ubah Nama";
 
         GlobalFunction.delay(3);
-        editNama.click();
-        editNama.clear();
-        GlobalFunction.delay(3);
-
-        editNama.sendKeys(namaUser);
+        userMonitoring.getTxtFullName().clear();
+        userMonitoring.getTxtFullName().sendKeys(namaUser);
         extentTest.log(LogStatus.PASS, "TUMPA002 Ubah text field nama");
     }
     @When("TUMPA002 Tekan tombol ubah")
@@ -253,7 +250,7 @@ public class UserMonitoringPositif {
         WebElement divTabel = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[1]/div/div/div/div[2]/div/table/tbody"));
         List<WebElement> listH = divTabel.findElements(By.tagName("h6"));
 
-        if(listH.get(0).getText() == namaUser){
+        if(listH.get(0).getText().equals(namaUser)){
             extentTest.log(LogStatus.PASS, "TUMPA002 Validasi setelah menekan tombol ubah");
         }else{
             extentTest.log(LogStatus.FAIL, "TUMPA002 Validasi setelah menekan tombol ubah");

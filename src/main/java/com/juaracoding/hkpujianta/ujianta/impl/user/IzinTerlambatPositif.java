@@ -69,8 +69,8 @@ public class IzinTerlambatPositif {
     }
     @And("TIZPU001 Masukan email dan password yang valid")
     public void tizpu001_masukan_email_dan_password_yang_valid(){
-        userLoginPage.getTxtEmail().sendKeys("testuser@gmail.com");
-        userLoginPage.getTxtPassword().sendKeys("testuser");
+        userLoginPage.getTxtEmail().sendKeys("dummyher@gmail.com");
+        userLoginPage.getTxtPassword().sendKeys("dummyher");
         extentTest.log(LogStatus.PASS, "TIZPU001 Masukan email dan password yang valid");
     }
     @When("TIZPU001 Tekan tombol Masuk")
@@ -126,7 +126,7 @@ public class IzinTerlambatPositif {
     }
     @And("TIZPU001 Input field Tanggal")
     public void tizpu001_input_field_tanggal(){
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now().plusDays(9);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
         String date = now.format(formatter);
 
@@ -195,12 +195,16 @@ public class IzinTerlambatPositif {
     @When("TIZPU001 Tekan tombol kembali")
     public void tizpu001_tekan_tombol_kembali(){
         GlobalFunction.delay(2);
+
+        driver.navigate().refresh();
+
         izinPage.getBtnKembali().click();
         extentTest.log(LogStatus.PASS, "TIZPU001 Tekan tombol kembali");
     }
     @Then("TIZPU001 Validasi halaman home setelah izin")
     public void tizpu001_validasi_halaman_home_setelah_izin(){
-        if(userLoginPage.getDivValidasiHome().equals("")){
+        GlobalFunction.delay(2);
+        if(!userLoginPage.getDivValidasiHome().isDisplayed()){
             extentTest.log(LogStatus.FAIL, "TIZPU001 Validasi halaman home setelah izin");
         }else{
             extentTest.log(LogStatus.PASS, "TIZPU001 Validasi halaman home setelah izin");

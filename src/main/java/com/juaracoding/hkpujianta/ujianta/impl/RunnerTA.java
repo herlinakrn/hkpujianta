@@ -15,12 +15,20 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features = {
-                //POSITIF
+                //----------FEATURE POSITIF----------
                 "src/main/resources/features/001LoginPositifAdmin.feature",
+                "src/main/resources/features/002RegistrasiUserPositif.feature",
+                "src/main/resources/features/003UnitPositif.feature",
+                "src/main/resources/features/004IzinTerlambatPositif.feature",
+                "src/main/resources/features/005IzinOffPositif.feature",
+                "src/main/resources/features/006UserMonitoringPositif.feature",
 
-                //NEGATIF
+                //--------FEATURE NEGATIF-------------
                 "src/main/resources/features/051LoginNegatifAdmin.feature",
-                //"src/main/resources/features/003Step1Soal11.feature",
+                "src/main/resources/features/052RegistrasiUserNegatif.feature",
+                "src/main/resources/features/053UnitNegatif.feature",
+                "src/main/resources/features/054IzinTerlambatNegatif.feature",
+                "src/main/resources/features/055IzinOffNegatif.feature",
         },
         glue = "com.juaracoding.hkpujianta.ujianta.impl",
         monochrome = true,
