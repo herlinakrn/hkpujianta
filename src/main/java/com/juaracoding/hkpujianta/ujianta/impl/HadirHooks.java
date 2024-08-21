@@ -43,9 +43,18 @@ public class HadirHooks {
             1, //TUNNA003 Admin menambahkan unit baru tanpa mengisi field isian
             1, //TUNNA004 Admin menambahkan unit baru dengan panjang karakter lebih dari 500 pada field nama unit
 
-            //IZIN
+            //IZIN TERLAMBAT
             1, //TIZPU001 User input Izin Terlambat dengan isian valid
             1, //TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan
+
+            //IZIN OFF
+            1, //TIZOPU001 User mengajukan izin off dengan isian valid
+            1, //TIZOPA002 Admin melakukan validasi pada menu laporan izin off
+            1, //TIZONU003 User melakukan izin off tanpa menginputkan isian
+
+            //USER MONITORING
+            1, //TUMPA001 Admin melakukan pencarian data dengan keyword 'test'
+            1, //TUMPA002 Admin melakukan edit pada nama user
     };
 
     private String testReport = "";

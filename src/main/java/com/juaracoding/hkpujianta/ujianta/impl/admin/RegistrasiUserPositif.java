@@ -95,6 +95,7 @@ public class RegistrasiUserPositif {
 
         if(textValidasi.equals("") && textValidasi2.equals("")){
             isValid = false;
+            extentTest.log(LogStatus.FAIL, "TRUPA001 Validasi halaman home");
         }
         Assert.assertTrue(textValidasi.equals("Validator 1") && textValidasi2.equals("© 2022 Aplikasi Hadir"));
         extentTest.log(LogStatus.PASS, "TRUPA001 Validasi halaman home");

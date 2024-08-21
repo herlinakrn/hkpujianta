@@ -10,9 +10,13 @@ import com.relevantcodes.extentreports.LogStatus;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
+
+import java.util.List;
 
 /*
 IntelliJ IDEA 2024.1.4 (Ultimate Edition)
@@ -120,10 +124,12 @@ public class IzinTerlambatNegatif {
     public void tiznu003_validasi_notifikasi_setelah_tekan_tombol_ajukan(){
         GlobalFunction.delay(2);
 
-        if(izinPage.getErrorLogKeteranganTerlambat().getText().trim().equals("")){
-            extentTest.log(LogStatus.PASS, "TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan");
-        }else{
+        WebElement elementDiv = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/form/div"));
+        List<WebElement> listP = elementDiv.findElements(By.tagName("p"));
+        if(listP.get(0).getText().equals("") && listP.get(1).getText().equals("") && listP.get(2).getText().equals("")){
             extentTest.log(LogStatus.FAIL, "TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan");
+        }else{
+            extentTest.log(LogStatus.PASS, "TIZNU003 Validasi notifikasi setelah tekan tombol Ajukan");
         }
     }
 }

@@ -15,11 +15,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 /*
 IntelliJ IDEA 2024.1.4 (Ultimate Edition)
@@ -39,6 +41,7 @@ public class IzinTerlambatPositif {
     private IzinPage izinPage;
     private String keterangan;
     private boolean isValid;
+    private static Random random = new Random();
 
     public IzinTerlambatPositif() {
         isValid = true;
@@ -127,43 +130,41 @@ public class IzinTerlambatPositif {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
         String date = now.format(formatter);
 
-       // WebElement tanggal = driver.findElement(By.className("MuiInputBase-inputAdornedEnd"));
-        WebElement divParent = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/form/div"));
-        List<WebElement> list = driver.findElements(By.tagName("input"));
-        list.get(0).sendKeys(date);
-
-        //tanggal.sendKeys(date);
-        GlobalFunction.delay(2);
-//        izinPage.getTxtFieldTanggal().click();
-//        izinPage.getTxtFieldTanggal().sendKeys(date);
+        WebElement divParentTanggal = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/form/div/div[1]/div/div"));
+        List<WebElement> tanggalTerlambat = divParentTanggal.findElements(By.tagName("input"));
+        tanggalTerlambat.get(0).sendKeys(date);
         extentTest.log(LogStatus.PASS, "TIZPU001 Input field Tanggal");
     }
     @And("TIZPU001 Input field Jam")
     public void tizpu001_input_field_jam(){
 
-        LocalDateTime now = LocalDateTime.now();
-        LocalDateTime oneHourLater = now.plusHours(1).withMinute(0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        String jams = oneHourLater.format(formatter);
-
-        //System.out.println("jam :" + jams);
-        WebElement divParent = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/form/div"));
-        List<WebElement> list = driver.findElements(By.tagName("input"));
-        boolean flag = false;
-        int attemps = 0;
-        while (attemps < 8 && !flag){
-            try{
-                list.get(0);
-                //list.get(1).sendKeys(jams);
-                list.get(1).sendKeys("13:00");
-                flag = true;
-                extentTest.log(LogStatus.PASS, "TIZPU001 Input field Jam");
-            }catch (Exception ex){
-                attemps++;
-                extentTest.log(LogStatus.FAIL, "TIZPU001 Input field Jam");
-            }
-        }
         GlobalFunction.delay(2);
+        izinPage.getBtnClock().click();
+        WebElement elementClock = driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/div/div/div[2]/div"));
+        List<WebElement> listDiv = elementClock.findElements(By.tagName("div"));
+        System.out.println("Banyak nya Div -> "+listDiv.size());
+        List<WebElement> listClock = listDiv.get(2).findElements(By.tagName("span"));
+        System.out.println("Banyak nya Span -> "+listClock.size());
+        WebElement elementSpan = listClock.get(random.nextInt(0,24));
+        System.out.println("Aria Label SPan adalah : "+elementSpan.getAttribute("aria-label"));
+        new Actions(driver)
+                .click(elementSpan)
+                .perform();
+        /** button next */
+        WebElement nextClockButton = driver.findElement(By.xpath("/html/body/div[3]/div[2]/div/div/div/div[1]/button[2]"));
+        new Actions(driver)
+                .click(nextClockButton)
+                .perform();
+        listClock = listDiv.get(2).findElements(By.tagName("span"));
+        System.out.println("Banyak nya Span Menit-> "+listClock.size());
+        elementSpan = listClock.get(random.nextInt(0,12));
+        System.out.println("Aria Label Span Menit adalah : "+elementSpan.getAttribute("aria-label"));
+        new Actions(driver)
+                .click(elementSpan)
+                .perform();
+
+        extentTest.log(LogStatus.PASS, "TIZPU001 Input field Jam");
+
     }
     @And("TIZPU001 Input field Keterangan")
     public void tizpu001_input_field_keterangan(){
@@ -181,18 +182,19 @@ public class IzinTerlambatPositif {
     }
     @Then("TIZPU001 Validasi setelah melakukan input")
     public void tizpu001_validasi_setelah_melakukan_input(){
-        WebElement divParent = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/form/div/div[1]/div/div"));
-        List<WebElement> list = driver.findElements(By.id("//*[@id=\"notes-helper-text\"]"));
-        System.out.println("get p : "+ list.get(0).getText());
-
-//        if(izinPage.getDivValidasiIzinTerlambat().equals("")){
-//            extentTest.log(LogStatus.FAIL, "TIZPU001 Validasi setelah melakukan input");
-//        }else{
-//            extentTest.log(LogStatus.PASS, "TIZPU001 Validasi setelah melakukan input");
-//        }
+        GlobalFunction.delay(2);
+        WebElement divParent = driver.findElement(By.xpath("/html/body/div/div/div[3]/div/div[2]/div[1]/div[2]/div/div/div/div"));
+        List<WebElement> list = divParent.findElements(By.tagName("p"));
+        //System.out.println("get p : "+ list.get(0).getText());
+        if(list.get(0).getText().equals("") && list.get(1).getText().equals("") && list.get(2).getText().equals("")){
+            extentTest.log(LogStatus.FAIL, "TIZPU001 Validasi setelah melakukan input");
+        }else{
+            extentTest.log(LogStatus.PASS, "TIZPU001 Validasi setelah melakukan input");
+        }
     }
     @When("TIZPU001 Tekan tombol kembali")
     public void tizpu001_tekan_tombol_kembali(){
+        GlobalFunction.delay(2);
         izinPage.getBtnKembali().click();
         extentTest.log(LogStatus.PASS, "TIZPU001 Tekan tombol kembali");
     }

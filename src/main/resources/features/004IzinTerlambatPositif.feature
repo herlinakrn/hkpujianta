@@ -1,4 +1,4 @@
-Feature: Izin Positif
+Feature: Izin Terlambat Positif
   Scenario: TIZPU001 User input Izin Terlambat dengan isian valid
   When TIZPU001 Membuka Halaman Login
   And TIZPU001 Clear field input email dan password

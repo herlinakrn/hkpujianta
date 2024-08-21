@@ -42,6 +42,28 @@ public class UserMonitoring {
     @FindBy(xpath = "//input[@id='free-solo-with-text-demo']")
     private WebElement txtFieldUnit;
 
+    @FindBy(xpath = "//input[@id='search']")
+    private WebElement txtSearch;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement btnSearch;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[6]/div[1]/div[1]/button[1]")
+    private WebElement btnTitikTiga;
+
+    @FindBy(xpath = "//body/div[3]/div[3]/ul[1]/li[1]")
+    private WebElement btnEdit;
+
+    @FindBy(xpath = "//input[@id='fullname']")
+    private WebElement txtFullName;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement btnSubmitEdit;
+
+    @FindBy(xpath = "//h1[@class='MuiTypography-root MuiTypography-h1 css-czbdxj']")
+    private WebElement varEditUserMonitoring;
+
+
     public UserMonitoring(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -78,5 +100,39 @@ public class UserMonitoring {
         return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
                 .until(ExpectedConditions.visibilityOf(txtFieldUnit));
     }
-
+    public WebElement getTxtSearch(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(txtSearch));
+    }
+    public WebElement getBtnSearch() {
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(btnSearch));
+    }
+    public WebElement getBtnTitikTiga(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(btnTitikTiga));
+    }
+    public WebElement getBtnEdit(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(btnEdit));
+    }
+    public WebElement getTxtFullName(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(txtFullName));
+    }
+    public WebElement getBtnSubmitEdit(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(btnSubmitEdit));
+    }
+    public WebElement getVarEditUserMonitoring(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(varEditUserMonitoring));
+    }
 }

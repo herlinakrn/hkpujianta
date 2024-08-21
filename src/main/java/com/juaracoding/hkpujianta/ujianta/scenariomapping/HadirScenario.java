@@ -15,9 +15,18 @@ public enum HadirScenario {
     T7("TUNNA003 Admin menambahkan unit baru tanpa mengisi field isian"),
     T8("TUNNA004 Admin menambahkan unit baru dengan panjang karakter lebih dari 500 pada field nama unit"),
 
-    //IZIN
+    //IZIN TERLAMBAT
     T9("TIZPU001 User input Izin Terlambat dengan isian valid"),
-    T10("TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan")
+    T10("TIZNU003 User mengajukan izin terlambat tanpa mengisi inputan"),
+
+    //IZIN OFF
+    T11("TIZOPU001 User mengajukan izin off dengan isian valid"),
+    T12("TIZOPA002 Admin melakukan validasi pada menu laporan izin off"),
+    T13("TIZONU003 User melakukan izin off tanpa menginputkan isian"),
+
+    //USER MONITORING
+    T14("TUMPA001 Admin melakukan pencarian data dengan keyword 'test'"),
+    T15("TUMPA002 Admin melakukan edit pada nama user")
     ;
 
     private String testName;

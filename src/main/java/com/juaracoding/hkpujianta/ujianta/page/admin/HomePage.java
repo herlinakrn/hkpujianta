@@ -37,6 +37,12 @@ public class HomePage {
     @FindBy(xpath = "//button[normalize-space()='Logout']")
     private WebElement buttonLogout;
 
+    @FindBy(xpath = "//p[normalize-space()='Laporan']")
+    private WebElement varMenuLaporan;
+
+    @FindBy(xpath = "//p[normalize-space()='Izin Off']")
+    private WebElement varIzinOff;
+
     public HomePage (WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -66,4 +72,14 @@ public class HomePage {
                 .until(ExpectedConditions.visibilityOf(labelAplikasiHadir));
     }
 
+    public WebElement getVarMenuLaporan(){
+        GlobalFunction.delay(Constants.TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(varMenuLaporan));
+    }
+    public WebElement getVarIzinOff() {
+        GlobalFunction.delay(Constants.TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(Constants.TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(varIzinOff));
+    }
 }

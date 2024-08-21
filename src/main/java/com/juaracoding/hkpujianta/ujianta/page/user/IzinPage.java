@@ -33,15 +33,18 @@ public class IzinPage {
     @FindBy(xpath = "//p[@class='MuiTypography-root MuiTypography-body1 css-1bthjtb']")
     private WebElement varFormAjukanIzinTerlambat;
 
-    @FindBy(xpath = "/html/body/div[2]/div[3]/div/form/div/div[1]/div/div")
-    private WebElement divTanggal;
+//    @FindBy(xpath = "/html/body/div[2]/div[3]/div/form/div/div[1]/div/div")
+//    private WebElement divTanggal;
 
-    @FindBy(xpath = "//input[@id='mui-1']")
-    //@FindBy(xpath = "//*[@id=\"mui-31\"]")
-    private WebElement txtFieldTanggalTeelambat;
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/form/div/div[1]/div/div")
+    WebElement divParentTglOff;
+
 
     @FindBy(xpath = "//input[@id='mui-2']")
     private WebElement txtFieldJamTerlambat;
+
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/form/div/div[2]/div/div/div/button")
+    WebElement btnClock;
 
     @FindBy(xpath = "//textarea[@id='notes']")
     private WebElement txtFieldKeteranganTerlambat;
@@ -117,7 +120,7 @@ public class IzinPage {
     public WebElement getTxtFieldTanggalTerlambat() {
         GlobalFunction.delay(TIMEOUT_DELAY);
         return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
-                .until(ExpectedConditions.visibilityOf(txtFieldTanggalTeelambat));
+                .until(ExpectedConditions.visibilityOf(divParentTglOff));
     }
     public  WebElement getTxtFieldJamTerlambat() {
         GlobalFunction.delay(TIMEOUT_DELAY);
@@ -199,5 +202,10 @@ public class IzinPage {
         GlobalFunction.delay(TIMEOUT_DELAY);
         return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
                 .until(ExpectedConditions.visibilityOf(labelCountData));
+    }
+    public WebElement getBtnClock(){
+        GlobalFunction.delay(TIMEOUT_DELAY);
+        return new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_DELAY))
+                .until(ExpectedConditions.visibilityOf(btnClock));
     }
 }
